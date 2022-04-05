@@ -16,6 +16,7 @@ public class User {
     private String Phone;
     private String Gender;
     private String Mail;
+
     public User() {}
 
     public User(String name, String birthday, String phone, String gender, String mail) {

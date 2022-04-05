@@ -10,80 +10,80 @@ import javax.persistence.Id;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
-    private String Name;
-    private String Birthday;
-    private String Phone;
-    private String Gender;
-    private String Mail;
+    private Long id;
+    private String name;
+    private String birthday;
+    private String phone;
+    private String gender;
+    private String mail;
 
     public User() {}
 
     public User(String name, String birthday, String phone, String gender, String mail) {
-        Name = name;
-        Birthday = birthday;
-        Phone = phone;
-        Gender = gender;
-        Mail = mail;
+        this.name = name;
+        this.birthday = birthday;
+        this.phone = phone;
+        this.gender = gender;
+        this.mail = mail;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "Id=" + Id +
-                ", Name='" + Name + '\'' +
-                ", Birthday='" + Birthday + '\'' +
-                ", Phone='" + Phone + '\'' +
-                ", Gender='" + Gender + '\'' +
-                ", Mail='" + Mail + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", phone='" + phone + '\'' +
+                ", gender='" + gender + '\'' +
+                ", mail='" + mail + '\'' +
                 '}';
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getBirthday() {
-        return Birthday;
+        return birthday;
     }
 
     public void setBirthday(String birthday) {
-        Birthday = birthday;
+        this.birthday = birthday;
     }
 
     public String getPhone() {
-        return Phone;
+        return phone;
     }
 
     public void setPhone(String phone) {
-        Phone = phone;
+        this.phone = phone;
     }
 
     public String getGender() {
-        return Gender;
+        return gender;
     }
 
     public void setGender(String gender) {
-        Gender = gender;
+        this.gender = gender;
     }
 
     public String getMail() {
-        return Mail;
+        return mail;
     }
 
     public void setMail(String mail) {
-        Mail = mail;
+        this.mail = mail;
     }
 }

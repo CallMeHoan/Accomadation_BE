@@ -36,7 +36,7 @@ public class UserController {
         Optional<User> foundUser = userRepository.findById(id);
         if(foundUser.isPresent()){
             return ResponseEntity.status(HttpStatus.OK).body(
-                    new ResponseObject("200", "Get User detail succesfully", foundUser)
+                    new ResponseObject("200", "Get User detail successfully", foundUser)
             );
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
@@ -48,9 +48,16 @@ public class UserController {
     // Add new user
     @PostMapping("/new-user")
     ResponseEntity<ResponseObject> addNewUser(@RequestBody User newUser){
-        return ResponseEntity.status(HttpStatus.OK).body(
-                new ResponseObject("200", "Add User successfully", userRepository.save(newUser))
-        );
+        Optional<User> UserByMail = userRepository.findByMail(newUser.getMail());
+        if (UserByMail.isPresent()) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(
+                    new ResponseObject("409", "Email already exists", "")
+            );
+        } else {
+            return ResponseEntity.status(HttpStatus.OK).body(
+                    new ResponseObject("200", "Add User successfully", userRepository.save(newUser))
+            );
+        }
     }
 
     // Update user

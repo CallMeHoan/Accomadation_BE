@@ -18,16 +18,8 @@ public class Account {
     public Account() {
     }
 
-    public Account(Long id, String accountName, String password, String userID, String role) {
-        this.id = id;
-        this.username = accountName;
-        this.password = password;
-        this.userID = userID;
-        this.role = role;
-    }
-
-    public Account(String accountName, String password, String userID, String role) {
-        this.username = accountName;
+    public Account(String username, String password, String userID, String role) {
+        this.username = username;
         this.password = password;
         this.userID = userID;
         this.role = role;
@@ -56,8 +48,8 @@ public class Account {
         return username;
     }
 
-    public void setUsername(String accountName) {
-        this.username = accountName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

@@ -10,7 +10,7 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String accountName;
+    private String username;
     private String password;
     private String userID;
     private String role;
@@ -20,17 +20,28 @@ public class Account {
 
     public Account(Long id, String accountName, String password, String userID, String role) {
         this.id = id;
-        this.accountName = accountName;
+        this.username = accountName;
         this.password = password;
         this.userID = userID;
         this.role = role;
     }
 
     public Account(String accountName, String password, String userID, String role) {
-        this.accountName = accountName;
+        this.username = accountName;
         this.password = password;
         this.userID = userID;
         this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", userID='" + userID + '\'' +
+                ", role='" + role + '\'' +
+                '}';
     }
 
     public Long getId() {
@@ -41,12 +52,12 @@ public class Account {
         this.id = id;
     }
 
-    public String getAccountName() {
-        return accountName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
+    public void setUsername(String accountName) {
+        this.username = accountName;
     }
 
     public String getPassword() {

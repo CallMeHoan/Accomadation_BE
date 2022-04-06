@@ -1,6 +1,8 @@
 package com.example.AccomadationForStudent.Database;
 
+import com.example.AccomadationForStudent.Models.Account;
 import com.example.AccomadationForStudent.Models.User;
+import com.example.AccomadationForStudent.Repositories.AccountRepository;
 import com.example.AccomadationForStudent.Repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 public class Database {
     private static final Logger logger = LoggerFactory.getLogger(Database.class);
     @Bean
-    CommandLineRunner initDatabase (UserRepository userRepository){
+    CommandLineRunner initDatabase (UserRepository userRepository, AccountRepository accountRepository){
         return new CommandLineRunner() {
             @Override
             public void run(String... args) throws Exception {
@@ -20,6 +22,8 @@ public class Database {
                 User userB = new User("Dat Ne", "17/09/2001", "0917124123", "Male", "datne@gmail.com");
                 logger.info("insert data:" + userRepository.save(userA));
                 logger.info("insert data:" + userRepository.save(userB));
+                Account accountA = new Account("vietanh", "0307", "1", "admin");
+                logger.info("insert data:" + accountRepository.save(accountA));
             }
         };
     }

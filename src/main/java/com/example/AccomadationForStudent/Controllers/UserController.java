@@ -19,7 +19,7 @@ public class UserController {
     @GetMapping("")
     //Get all Users
     ResponseEntity<ResponseObject> findAllUser(){
-        List<User> allUser = userRepository.findAll();
+            List<User> allUser = userRepository.findAll();
         if(allUser.size() > 0) {
             return ResponseEntity.status(HttpStatus.OK).body(
                     new ResponseObject("200", "Get all user successfully", allUser)
@@ -83,7 +83,7 @@ public class UserController {
         if(isExists){
             userRepository.deleteById(id);
             return ResponseEntity.status(HttpStatus.OK).body(
-                    new ResponseObject("200", "Delete user successfuly", "")
+                    new ResponseObject("200", "Delete user successfully", "")
             );
         }else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(

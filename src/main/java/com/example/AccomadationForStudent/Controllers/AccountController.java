@@ -12,9 +12,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(path = "api/v1/accounts")
 public class AccountController {
-    @Autowired
-    private AccountService accountService;
 
+    private final AccountService accountService;
+
+    @Autowired
+    public AccountController(AccountService accountService) {
+        this.accountService = accountService;
+    }
     @GetMapping("/login")
     ResponseEntity<ResponseObject> Validate(@RequestBody Account account) {
         return accountService.Validate(account.getUsername(), account.getPassword());

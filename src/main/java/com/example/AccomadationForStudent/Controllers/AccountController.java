@@ -2,7 +2,6 @@ package com.example.AccomadationForStudent.Controllers;
 
 import com.example.AccomadationForStudent.Models.Account;
 import com.example.AccomadationForStudent.Models.ResponseObject;
-import com.example.AccomadationForStudent.Repositories.AccountRepository;
 import com.example.AccomadationForStudent.Services.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,5 +19,9 @@ public class AccountController {
         return accountService.Validate(account.getUsername(), account.getPassword());
     }
 
+    @GetMapping("/register")
+    ResponseEntity<ResponseObject> Register(@RequestBody Account account) {
+        return accountService.Validate(account.getUsername(), account.getPassword());
+    }
 
 }

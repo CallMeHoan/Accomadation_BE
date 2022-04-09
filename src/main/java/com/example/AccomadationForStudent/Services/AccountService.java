@@ -31,4 +31,17 @@ public class AccountService {
             );
         }
     }
+
+    public ResponseEntity<ResponseObject> Register(String username, String password) {
+        Optional<Account> foundAccount = accountRepository.findAccountByUsername(username);
+        if (foundAccount.isPresent()) {
+            return ResponseEntity.status(HttpStatus.OK).body(
+                    new ResponseObject("409", "Username already exists", "")
+            );
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                    new ResponseObject("200", "Registered", foundAccount)
+            );
+        }
+    }
 }

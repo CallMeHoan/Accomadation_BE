@@ -19,9 +19,19 @@ public class AccountController {
         return accountService.Validate(account.getUsername(), account.getPassword());
     }
 
-    @GetMapping("/register")
+    @PostMapping("/register")
     ResponseEntity<ResponseObject> Register(@RequestBody Account account) {
-        return accountService.Validate(account.getUsername(), account.getPassword());
+        return accountService.Register(account);
+    }
+
+    @PutMapping("/update")
+    ResponseEntity<ResponseObject> Update(@RequestBody Account account) {
+        return accountService.Update(account);
+    }
+
+    @DeleteMapping("/delete")
+    ResponseEntity<ResponseObject> Delete(@RequestBody Account account) {
+        return accountService.Delete(account);
     }
 
 }

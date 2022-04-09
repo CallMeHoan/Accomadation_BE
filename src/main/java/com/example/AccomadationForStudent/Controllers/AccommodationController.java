@@ -26,4 +26,8 @@ public class AccommodationController {
     public ResponseEntity<ResponseObject> addAccommodation(@RequestBody Accommodation accommodation){
         return accommodationService.addAccommodation(accommodation);
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<ResponseObject> updateAccomadation(@RequestBody Accommodation newAccomadation, @PathVariable Long id){
+        return accommodationService.updateAccomadation(newAccomadation, id);
+    }
 }

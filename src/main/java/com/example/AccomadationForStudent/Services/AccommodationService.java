@@ -41,4 +41,24 @@ public class AccommodationService {
             );
         }
     }
+    public ResponseEntity<ResponseObject> updateAccomadation(Accommodation newAccomadation, Long id){
+        Optional<Accommodation> updateAccommodation = accommodationRepository.findById(id)
+                .map(accommodation -> {
+                   accommodation.setName(newAccomadation.getName());
+                   accommodation.setAddress(newAccomadation.getAddress());
+                   accommodation.setArea(newAccomadation.getArea());
+                   accommodation.setAvailable(newAccomadation.getAvailable());
+                   accommodation.setFloor(newAccomadation.getFloor());
+                   accommodation.setDescription(newAccomadation.getDescription());
+                   accommodation.setPeople(newAccomadation.getPeople());
+                   accommodation.setToilets(newAccomadation.getToilets());
+                   accommodation.setWifi_Access(newAccomadation.isWifi_Access());
+                   accommodation.setPrice(newAccomadation.getPrice());
+                   accommodation.setRooms(newAccomadation.getRooms());
+                   return accommodationRepository.save(accommodation);
+                });
+        return ResponseEntity.status(HttpStatus.OK).body(
+                new ResponseObject("200", "Update Accomadation successfully", updateAccommodation)
+        );
+    }
 }

@@ -86,7 +86,7 @@ public class UserService {
         if(isExists){
             userRepository.deleteById(id);
             return ResponseEntity.status(HttpStatus.OK).body(
-                    new ResponseObject("200", "Delete user successfuly", "")
+                    new ResponseObject("200", "Delete user successfully", "")
             );
         }else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(

@@ -11,19 +11,28 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "api/v1/Accommodations")
+@RequestMapping(path = "api/v1/accommodations")
 public class AccommodationController {
-    private AccommodationService accommodationService;
+    private final AccommodationService accommodationService;
+
     @Autowired
     public AccommodationController(AccommodationService accommodationService) {
         this.accommodationService = accommodationService;
     }
-    @GetMapping("/{id}")
+    @GetMapping(path="{id}")
     public ResponseEntity<ResponseObject> findAccommodationByID(@PathVariable long id) {
         return accommodationService.findAccommodationByID(id);
     }
-    @PostMapping("/add-accommodations")
+    @PostMapping
     public ResponseEntity<ResponseObject> addAccommodation(@RequestBody Accommodation accommodation){
         return accommodationService.addAccommodation(accommodation);
+    }
+    @PutMapping(path="{id}")
+    public ResponseEntity<ResponseObject> updateAccommodation(@PathVariable("id") Long id,  @RequestBody Accommodation newAccommodation){
+        return accommodationService.updateAccommodation(newAccommodation, id);
+    }
+    @DeleteMapping(path="{id}")
+    public ResponseEntity<ResponseObject> deleteAccommodation(@PathVariable("id") Long id){
+        return accommodationService.deleteAccommodation(id);
     }
 }

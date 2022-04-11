@@ -13,10 +13,16 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "api/v1/Users")
+@RequestMapping(path = "api/v1/users")
 public class UserController {
+
+    private final UserService userService;
+
     @Autowired
-    private UserService userService;
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
     @GetMapping("")
     //Get all Users
     ResponseEntity<ResponseObject> findAllUser(){

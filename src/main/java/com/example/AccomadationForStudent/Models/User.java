@@ -27,16 +27,13 @@ public class User {
         this.mail = mail;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", birthday='" + birthday + '\'' +
-                ", phone='" + phone + '\'' +
-                ", gender='" + gender + '\'' +
-                ", mail='" + mail + '\'' +
-                '}';
+    public User(Long id, String name, String birthday, String phone, String gender, String mail) {
+        this.id = id;
+        this.name = name;
+        this.birthday = birthday;
+        this.phone = phone;
+        this.gender = gender;
+        this.mail = mail;
     }
 
     public Long getId() {

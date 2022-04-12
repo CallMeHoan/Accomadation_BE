@@ -4,6 +4,7 @@ package com.example.AccomadationForStudent.Models;
 import javax.persistence.*;
 
 @Entity
+@Table(name="accommodations")
 public class Accommodation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

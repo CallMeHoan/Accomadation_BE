@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "api/v1/accommodations")
 public class AccommodationController {
@@ -18,6 +20,10 @@ public class AccommodationController {
     @Autowired
     public AccommodationController(AccommodationService accommodationService) {
         this.accommodationService = accommodationService;
+    }
+    @GetMapping
+    public ResponseEntity<ResponseObject> getAllAccommodations(){
+        return accommodationService.getAllAccommodations();
     }
     @GetMapping(path="{id}")
     public ResponseEntity<ResponseObject> findAccommodationByID(@PathVariable long id) {

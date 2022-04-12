@@ -3,7 +3,6 @@ package com.example.AccomadationForStudent.Models;
 import javax.persistence.*;
 
 @Entity
-@Table(name="accounts")
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

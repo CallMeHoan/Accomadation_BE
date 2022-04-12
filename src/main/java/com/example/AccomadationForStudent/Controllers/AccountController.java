@@ -2,7 +2,6 @@ package com.example.AccomadationForStudent.Controllers;
 
 import com.example.AccomadationForStudent.Models.Account;
 import com.example.AccomadationForStudent.Models.ResponseObject;
-import com.example.AccomadationForStudent.Repositories.AccountRepository;
 import com.example.AccomadationForStudent.Services.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,5 +23,19 @@ public class AccountController {
         return accountService.Validate(account.getUsername(), account.getPassword());
     }
 
+    @PostMapping("/register")
+    ResponseEntity<ResponseObject> Register(@RequestBody Account account) {
+        return accountService.Register(account);
+    }
+
+    @PutMapping("/update")
+    ResponseEntity<ResponseObject> Update(@RequestBody Account account) {
+        return accountService.Update(account);
+    }
+
+    @DeleteMapping("/delete")
+    ResponseEntity<ResponseObject> Delete(@RequestBody Account account) {
+        return accountService.Delete(account);
+    }
 
 }

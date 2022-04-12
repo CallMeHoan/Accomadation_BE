@@ -19,11 +19,12 @@ public class Accommodation {
     private Double Price;
     private Integer Available;
     private Integer Rooms;
+    private String Image_Url;
 
     public Accommodation() {
     }
 
-    public Accommodation(Long id, String name, String description, Integer toilets, boolean wifi_Access, Integer floor, Integer people, Double area, String address, Double price, Integer available, Integer rooms) {
+    public Accommodation(Long id, String name, String description, Integer toilets, boolean wifi_Access, Integer floor, Integer people, Double area, String address, Double price, Integer available, Integer rooms, String image_Url) {
         Id = id;
         Name = name;
         Description = description;
@@ -36,9 +37,10 @@ public class Accommodation {
         Price = price;
         Available = available;
         Rooms = rooms;
+        Image_Url = image_Url;
     }
 
-    public Accommodation(String name, String description, Integer toilets, boolean wifi_Access, Integer floor, Integer people, Double area, String address, Double price, Integer available, Integer rooms) {
+    public Accommodation(String name, String description, Integer toilets, boolean wifi_Access, Integer floor, Integer people, Double area, String address, Double price, Integer available, Integer rooms, String image_Url) {
         Name = name;
         Description = description;
         Toilets = toilets;
@@ -50,14 +52,7 @@ public class Accommodation {
         Price = price;
         Available = available;
         Rooms = rooms;
-    }
-
-    public String getName() {
-        return Name;
-    }
-
-    public void setName(String name) {
-        Name = name;
+        Image_Url = image_Url;
     }
 
     public Long getId() {
@@ -66,6 +61,14 @@ public class Accommodation {
 
     public void setId(Long id) {
         Id = id;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
     }
 
     public String getDescription() {
@@ -148,6 +151,14 @@ public class Accommodation {
         Rooms = rooms;
     }
 
+    public String getImage_Url() {
+        return Image_Url;
+    }
+
+    public void setImage_Url(String image_Url) {
+        Image_Url = image_Url;
+    }
+
     @Override
     public String toString() {
         return "Accommodation{" +
@@ -163,6 +174,7 @@ public class Accommodation {
                 ", Price=" + Price +
                 ", Available=" + Available +
                 ", Rooms=" + Rooms +
+                ", Image_Url='" + Image_Url + '\'' +
                 '}';
     }
 }
